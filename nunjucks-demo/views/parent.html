@@ -1,0 +1,29 @@
+{% block header %}
+  <div>
+    this is the parent content
+  </div>
+{% endblock %}
+
+<section class="left">
+  {% block left %}
+    <p>this is left</p>
+  {% endblock %}
+</section>
+
+<section class="right">
+  <p>后台数据
+  {{a}}
+  {% set a = "xinkui" %}
+  {{a}}
+  </p>
+  
+  {% block right %}
+    <p>this is right</p>
+  {% endblock %}
+</section>
+
+{% block footer %}
+  <div>
+    this is footer
+  </div>
+{% endblock %}

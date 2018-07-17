@@ -1,0 +1,8 @@
+{% block incmodule %} 
+  <p> include module </p>
+
+  {% import "form.html" as forms %}
+  {{forms.label('aaa')}}
+
+  <p>{{b}}</p>
+{% endblock %}

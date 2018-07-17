@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  {% extends 'parent.html' %}
+  
+  {% block left %}
+    this is child left
+    {% include 'include.html' %}
+  {% endblock %}
+
+  {% block right %}
+    {% if true %}
+      <p>aaaa</p>
+    {% endif %}
+
+    {% for item in [{name: 'a'}, {name: 'b'}] %}
+      <p>{{item.name}}</p>
+    {% else %}
+      <p>数组是空</p>
+    {% endfor %}
+
+    {% for key, value in {name: 'zhang', age: 12} %}
+      key: {{key}} value: {{value}} 
+    {% endfor%}
+
+    {% for x, y, z in [[1,2,3], [4,5,6], [7,8,9]] %}
+      <p>{{x}} {{y}} {{z}}</p>
+    {% endfor %}
+
+    {% macro field(name, value="", type="text") %}
+      <div>
+        <input type="{{ type }}" name="{{name}}" value="{{value}}"
+      </div>
+    {% endmacro %}
+
+    {{field('username', 'zhang', 'text')}}
+    {{field('age', '12', 'number')}}
+
+    <p>自组件中数据{{a}}</p>
+    
+  {% endblock%}
+
+  <div>
+    <p>222</p>
+    {% block footer %}
+      <p>111</p>
+      <p>
+        
+      </p>
+    {% endblock %}
+  </div>
+</body>
+</html>
